@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExtentionAppTest.App"
+             xmlns:vm="clr-namespace:ExtentionAppTest.ViewModels">
+
+    <Application.Resources>
+
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+
+            <!-- ViewModelLocator -->
+            <vm:ViewModelLocator x:Key="Locator" />
+           
+            <!-- Colors -->
+            <Color x:Key="DarkColor">#000000</Color>
+            
+            <!-- Styles -->
+
+            <Style x:Key="LblHeaderStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
+                <Setter Property="FontFamily" Value="sans-serif"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            
+            <Style x:Key="LblFooterStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="TextColor" Value="#177fe8"/>
+                <Setter Property="FontFamily" Value="sans-serif"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+
+            <Style x:Key="LblInfoStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="TextColor" Value="{StaticResource DarkColor}"/>
+                <Setter Property="FontFamily" Value="sans-serif"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

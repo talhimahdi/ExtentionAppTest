@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExtentionAppTest.Views.UserDetailsView"
+             xmlns:vm="clr-namespace:ExtentionAppTest.ViewModels"
+             xmlns:effects="clr-namespace:ExtentionAppTest.Effects"
+             xmlns:local="clr-namespace:ExtentionAppTest.Rendereres"
+             Title="Users Details"
+             >
+    <!--BindingContext="{Binding UserDetails, Source={StaticResource Locator}}"-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:UserDetailsVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BindingContext="{Binding Source={StaticResource vm}, Path=User}">
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                    <Image Source="http://images.vancura.org/work/macos-application-icons/xs-g1-hero.png" 
+                           Aspect="Fill" 
+                           HorizontalOptions="Center"
+                           WidthRequest="100"
+                           HeightRequest="80"
+                           />
+                    <Label Text="{Binding Path=name}" Style="{StaticResource LblInfoStyle}"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="{Binding Path=phone, StringFormat='phone: {0}'}" Style="{StaticResource LblInfoStyle}" />
+                    <Label Text="{Binding Path=website, StringFormat='website: {0}'}" Style="{StaticResource LblInfoStyle}" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="{Binding Path=username, StringFormat='username: {0}'}" Style="{StaticResource LblInfoStyle}" />
+                    <Label Text="{Binding Path=email, StringFormat='email: {0}'}" Style="{StaticResource LblInfoStyle}" />
+
+                    <Label Text="{Binding Path=company.name, StringFormat='company name: {0}'}" Style="{StaticResource LblInfoStyle}" />
+                    <Label Text="{Binding Path=address.city, StringFormat='city: {0}'}" Style="{StaticResource LblInfoStyle}" />
+                </StackLayout>
+
+
+                <StackLayout>
+                    <Entry Placeholder="With Effects" TextColor="White">
+                        <Entry.Effects>
+                            <effects:EntryFocusEffect />
+                        </Entry.Effects>
+                    </Entry>
+                    <local:MyEntry Placeholder="Custom Entry" TextColor="Black"/>
+                    <Entry Placeholder="Normal Entry" TextColor="Black"/>
+                    
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

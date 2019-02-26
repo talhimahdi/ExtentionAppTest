@@ -1,0 +1,94 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <EnableDefaultXamlItems>false</EnableDefaultXamlItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="App.xaml" />
+    <Content Include="ViewModels\BaseViewModel.cs" />
+    <Content Include="ViewModels\ViewModelLocator.cs" />
+
+    <Content Include="Services\UserServices.cs" />
+    <Content Include="IServices\IUserServices.cs" />
+
+    <Content Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppResources\Assets\ic_sample.png" />
+    <EmbeddedResource Include="AppResources\Localization\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+    <PackageReference Include="Xamarin.Forms.Navigation" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Forms.Popups" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Forms.ToolKit.Behaviors" Version="1.0.2" />
+    <PackageReference Include="Xamarin.Forms.ToolKit.Controls" Version="1.0.2" />
+    <PackageReference Include="Xamarin.Forms.ToolKit.Converters" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Forms.ToolKit.Extensions" Version="1.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="**\*.xaml.cs;obj\**;" />
+    <Compile Include="**\*.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AppResources\**" />
+    <EmbeddedResource Remove="AppResources\**" />
+    <None Remove="AppResources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\LoginView.xaml" />
+    <None Remove="Views\UserDetailsView.xaml" />
+    <None Remove="Views\UserListView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserDetailsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\DetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+  
+</Project>

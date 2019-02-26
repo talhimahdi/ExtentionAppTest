@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExtentionAppTest.Views.LoginView"
+             xmlns:Renderers="clr-namespace:ExtentionAppTest.Renderers"
+             BindingContext="{Binding Login, Source={StaticResource Locator}}"
+             Title="Login"
+             BackgroundColor="#F6F7F9"
+             >
+    <!--BackgroundColor="#F6F7F9"-->
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Frame BackgroundColor="White" VerticalOptions="Start" Margin="10" Padding="8" CornerRadius="6">
+                        <StackLayout>
+                            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="https://cdn2.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_GrooveShark.png" 
+                                           WidthRequest="30"/>
+                                    <Label Grid.Column="1" Text="LEARNING INSTITUTE" TextColor="#1B223D" FontSize="12" FontAttributes="Bold" VerticalOptions="Center"/>
+                                    <Image Grid.Column="2" Source="https://image.flaticon.com/icons/png/512/63/63355.png" WidthRequest="12"/>
+
+                                    <Frame Grid.Column="3" Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#30CE79" Margin="0,0,5,0">
+                                        <Label Text="✔ Déja Postuler" TextColor="White"  FontSize="10"/>
+                                    </Frame>
+
+                                </Grid>
+                            </StackLayout>
+                            <BoxView Color="#F6F7F9" WidthRequest ="100" HeightRequest="1"/>
+                            <StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                    <Frame Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#EFAA42" Margin="0,0,5,0">
+                                        <Label Text="Formation" FontSize="11" TextColor="White"/>
+                                    </Frame>
+                                    <Frame Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#EFAA42" Margin="0,0,5,0">
+                                        <Label Text="Juridique" FontSize="11" TextColor="White"/>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal">
+
+                                    <Label Text="Animation d'un Module" HorizontalOptions="Start" TextColor="Black" FontSize="12" FontAttributes="Bold"/>
+                                    <Label Text=">" HorizontalOptions="End" FontSize="12"/>
+                                </StackLayout>
+                                <StackLayout >
+                                    <Label Text="Donec sollicitudin molestie malesuada. Donec sollicitudin molestie malesuada." />
+                                </StackLayout>
+                            </StackLayout>
+                            
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+            </StackLayout>
+
+
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+    
+    
+    
+    
+<!--<Rendereres:MyEntry Text="Rendereres" />
+<Entry Placeholder="User name" Text="{Binding UserName}"/>
+<Entry Placeholder="Password" IsPassword="True" />-->
