@@ -5,7 +5,7 @@
              x:Class="ExtentionAppTest.Views.UserListView"
              BindingContext="{Binding UserList, Source={StaticResource Locator}}"
              Title="Users List"
-             BackgroundColor="#F6F7F9"
+             BackgroundColor="#EDEEF2"
              NavigationPage.HasBackButton="False">
 
 
