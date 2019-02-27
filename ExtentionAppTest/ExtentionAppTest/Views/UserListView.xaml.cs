@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
+//using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,7 +30,6 @@ namespace ExtentionAppTest.Views
 
         private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
         {
-            Vibration.Vibrate();
             var x = await Application.Current.MainPage.DisplayActionSheet("Title", "Swipped", "OK");
         }
     }
