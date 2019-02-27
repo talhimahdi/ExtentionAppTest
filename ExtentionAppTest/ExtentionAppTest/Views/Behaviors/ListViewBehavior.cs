@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace ExtentionAppTest.Views.Behaviors
 {
@@ -16,8 +17,7 @@ namespace ExtentionAppTest.Views.Behaviors
 
             listView = bindable;
             listView.ItemSelected += OnListViewItemSelected;
-            listView.SeparatorColor = Color.Brown;
-            //listView.RowHeight = new SizeRequest() { Minimum = Xamarin.Forms.Size };
+            listView.SeparatorColor = Color.Black;
         }
 
 
@@ -26,6 +26,7 @@ namespace ExtentionAppTest.Views.Behaviors
         {
             if (listView.SelectedItem != null)
             {
+                Vibration.Vibrate(TimeSpan.FromSeconds(1));
                 User si = listView.SelectedItem as User;
                 Application.Current.MainPage.Navigation.PushAsync(new UserDetailsView(si));
                 listView.SelectedItem = null;

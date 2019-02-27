@@ -5,82 +5,88 @@
              x:Class="ExtentionAppTest.Views.UserListView"
              BindingContext="{Binding UserList, Source={StaticResource Locator}}"
              Title="Users List"
-             
+             BackgroundColor="#EDEEF2"
              NavigationPage.HasBackButton="False">
-    
+
 
     <ContentPage.Content>
-        <StackLayout>
-            <Button Clicked="Button_Clicked" Text="Login"/>
-            <ListView ItemsSource="{Binding Users}" Header="{Binding}" Footer="{Binding}" BackgroundColor="White" RowHeight="200">
+        <StackLayout Spacing="0">
+            <!--<Button Clicked="Button_Clicked" Text="Login"/>-->
+            <ListView ItemsSource="{Binding Users}" Header="{Binding}" Footer="{Binding}" 
+                      RowHeight="-1" HasUnevenRows="True" SeparatorVisibility="None"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      >
                 <!-- Behaviors -->
                 <ListView.Behaviors>
                     <b:ListViewBehavior/>
                 </ListView.Behaviors>
                 <!-- End Behaviors -->
-                
+
                 <ListView.ItemTemplate>
-                    <DataTemplate >
+                    <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
+                                <StackLayout Orientation="Vertical" Spacing="0" Margin="10,5">
+                                    <Grid >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
 
-                                    <Frame BackgroundColor="White" VerticalOptions="Start" Margin="10" Padding="8" CornerRadius="6">
-                                        <StackLayout>
-                                            <StackLayout Grid.Row="0" Orientation="Horizontal">
-                                                <Grid HorizontalOptions="FillAndExpand">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="*"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <Image Source="https://cdn2.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_GrooveShark.png" 
-                                                   WidthRequest="30"/>
-                                                    <Label Grid.Column="1" Text="LEARNING INSTITUTE" TextColor="#1B223D" FontSize="12" FontAttributes="Bold" VerticalOptions="Center"/>
-                                                    <Image Grid.Column="2" Source="https://image.flaticon.com/icons/png/512/63/63355.png" WidthRequest="12"/>
-
-                                                    <Frame Grid.Column="3" Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#30CE79" Margin="0,0,5,0">
-                                                        <Label Text="✔ Déja Postuler" TextColor="White"  FontSize="10"/>
-                                                    </Frame>
-
-                                                </Grid>
-                                            </StackLayout>
-                                            <BoxView Color="#F6F7F9" WidthRequest ="100" HeightRequest="1"/>
+                                        <Frame BackgroundColor="White" VerticalOptions="Start" Padding="8" CornerRadius="6">
                                             <StackLayout>
-                                                <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                                    <SwipeGestureRecognizer Swiped="SwipeGestureRecognizer_Swiped" Direction="Right" />
-                                                </StackLayout.GestureRecognizers>
-                                                <StackLayout Grid.Row="1" Orientation="Horizontal">
-                                                    <Frame Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#EFAA42" Margin="0,0,5,0">
-                                                        <Label Text="Formation" FontSize="11" TextColor="White"/>
-                                                    </Frame>
-                                                    <Frame Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#EFAA42" Margin="0,0,5,0">
-                                                        <Label Text="Juridique" FontSize="11" TextColor="White"/>
-                                                    </Frame>
-                                                </StackLayout>
-                                                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                                <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                                    <Grid HorizontalOptions="FillAndExpand">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
 
-                                                    <Label Text="Animation d'un Module" HorizontalOptions="Start" TextColor="Black" FontSize="12" FontAttributes="Bold"/>
-                                                    <Label Text=">" HorizontalOptions="End" FontSize="12"/>
+                                                        <Image Grid.Column="0" Source="https://cdn2.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_GrooveShark.png" 
+                                           WidthRequest="30"/>
+                                                        <Label Grid.Column="1" Text="LEARNING INSTITUTE" TextColor="#1B223D" FontSize="12" FontAttributes="Bold" VerticalOptions="Center"/>
+                                                        <Image Grid.Column="2" Source="https://image.flaticon.com/icons/png/512/63/63355.png" WidthRequest="12"/>
+
+                                                        <Frame CornerRadius="5" Grid.Column="3" Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#30CE79" Margin="0,0,5,0">
+                                                            <Label Grid.Column="3" Text="✔ Déja Postuler" TextColor="White"  FontSize="10"/>
+                                                        </Frame>
+
+
+                                                    </Grid>
                                                 </StackLayout>
-                                                <StackLayout >
-                                                    <Label Text="Donec sollicitudin molestie malesuada. Donec sollicitudin molestie malesuada." />
+
+                                                <BoxView Grid.Row="1" Color="#F6F7F9" WidthRequest ="100" HeightRequest="1"/>
+
+                                                <StackLayout Grid.Row="2">
+                                                    <StackLayout Orientation="Horizontal" Padding="0,3">
+                                                        <Frame Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#EFAA42" Margin="0,0,5,0">
+                                                            <Label Text="Formation" FontSize="11" TextColor="White"/>
+                                                        </Frame>
+                                                        <Frame Padding="5" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="#EFAA42" Margin="0,0,5,0">
+                                                            <Label Text="Juridique" FontSize="11" TextColor="White"/>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Animation d'un Module" HorizontalOptions="Start" TextColor="Black" FontSize="12" FontAttributes="Bold"/>
+                                                        <Label Text=">" HorizontalOptions="End" FontSize="12"/>
+                                                    </StackLayout>
+                                                    <StackLayout >
+                                                        <Label Text="Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, 
+porttitor at sem. Quisque velit nisi, pretium ut lacinia in ..." FontSize="13" />
+                                                    </StackLayout>
                                                 </StackLayout>
+
                                             </StackLayout>
 
-                                        </StackLayout>
+                                        </Frame>
 
-                                    </Frame>
-
-                                </Grid>
+                                    </Grid>
+                                </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
@@ -94,7 +100,7 @@
                         </ContentView>
                     </DataTemplate>
                 </ListView.HeaderTemplate>
-                
+
                 <ListView.FooterTemplate>
                     <DataTemplate>
                         <ContentView BackgroundColor="#EFF0F1">
